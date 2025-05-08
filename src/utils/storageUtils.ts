@@ -91,7 +91,7 @@ export const getSettings = (): ChatSettings => {
     typingAnimation: true,
     chatId: generateId(),
     chatName: 'Chat',
-    cloudflareAccessId: 'ef479ab94e69ebada0e09ee9fe0bca2a.access'
+    cloudflareAccessId: ''
   };
   
   const savedSettings = localStorage.getItem('chatSettings');

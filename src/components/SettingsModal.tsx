@@ -121,7 +121,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                 value={cloudflareAccessId}
                 onChange={(e) => setCloudflareAccessId(e.target.value)}
                 className="bg-gray-800/30 text-white border-0 focus-visible:ring-1 focus-visible:ring-chat-accent focus-visible:ring-offset-0 placeholder:text-gray-500"
-                placeholder="Enter Cloudflare Access ID"
+                placeholder="Enter your Cloudflare Access ID"
               />
             </div>
             
