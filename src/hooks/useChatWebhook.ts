@@ -9,7 +9,8 @@ export const useChatWebhook = (
   webhookUrl: string, 
   chatId: string, 
   typingAnimation: boolean,
-  cloudflareAccessId: string
+  cloudflareAccessId: string,
+  clientSecret: string
 ) => {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -41,7 +42,8 @@ export const useChatWebhook = (
         messageText,
         files,
         chatId,
-        cloudflareAccessId
+        cloudflareAccessId,
+        clientSecret
       );
       
       // Remove typing indicator

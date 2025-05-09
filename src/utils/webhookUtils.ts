@@ -4,12 +4,21 @@ export const sendToWebhook = async (
   message: string | undefined,
   files: File[] | undefined,
   chatId: string,
-  cloudflareAccessId: string
+  cloudflareAccessId: string,
+  clientSecret: string
 ): Promise<string> => {
   try {
     if (!webhookUrl) {
       throw new Error('Webhook URL is not set');
     }
+
+    console.log('Sending to webhook:', {
+      url: webhookUrl,
+      hasMessage: !!message,
+      filesCount: files?.length || 0,
+      chatId,
+      hasAccessId: !!cloudflareAccessId
+    });
 
     const formData = new FormData();
     formData.append('chatId', chatId);
@@ -27,19 +36,30 @@ export const sendToWebhook = async (
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
     
+    console.log('Sending request with headers:', {
+      'CF-Access-Client-Id': cloudflareAccessId,
+      'CF-Access-Client-Secret': clientSecret
+    });
+
     const response = await fetch(webhookUrl, {
       method: 'POST',
       body: formData,
       signal: controller.signal,
       headers: {
-        'CF-Access-Client-Id': cloudflareAccessId
+        'CF-Access-Client-Id': cloudflareAccessId,
+        'CF-Access-Client-Secret': clientSecret
       }
     });
     
     clearTimeout(timeoutId);
     
+    console.log('Response status:', response.status);
+    console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+    
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorText = await response.text();
+      console.error('Error response:', errorText);
+      throw new Error(`HTTP error! status: ${response.status}, body: ${errorText}`);
     }
     
     // Get the raw response text first

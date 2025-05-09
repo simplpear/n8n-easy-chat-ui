@@ -23,7 +23,8 @@ const ChatContainer: React.FC<ChatContainerProps> = ({
     settings.webhookUrl, 
     settings.chatId,
     settings.typingAnimation,
-    settings.cloudflareAccessId
+    settings.cloudflareAccessId,
+    settings.clientSecret
   );
   
   // Load chat history from localStorage on mount

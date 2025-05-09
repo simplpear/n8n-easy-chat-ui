@@ -91,11 +91,19 @@ export const getSettings = (): ChatSettings => {
     typingAnimation: true,
     chatId: generateId(),
     chatName: 'Chat',
-    cloudflareAccessId: ''
+    cloudflareAccessId: '',
+    clientSecret: ''
   };
   
   const savedSettings = localStorage.getItem('chatSettings');
-  return savedSettings ? JSON.parse(savedSettings) : defaultSettings;
+  if (savedSettings) {
+    const parsed = JSON.parse(savedSettings);
+    return {
+      ...defaultSettings,
+      ...parsed
+    };
+  }
+  return defaultSettings;
 };
 
 // Get chat history from localStorage

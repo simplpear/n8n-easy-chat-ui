@@ -23,6 +23,7 @@ export interface ChatSettings {
   chatId: string;
   chatName: string;
   cloudflareAccessId: string;
+  clientSecret: string;
 }
 
 export interface ChatHistoryData {

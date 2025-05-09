@@ -29,12 +29,14 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
   const [typingAnimation, setTypingAnimation] = useState(settings.typingAnimation);
   const [chatName, setChatName] = useState(settings.chatName || 'Chat');
   const [cloudflareAccessId, setCloudflareAccessId] = useState(settings.cloudflareAccessId);
+  const [clientSecret, setClientSecret] = useState(settings.clientSecret);
   
   useEffect(() => {
     setWebhookUrl(settings.webhookUrl);
     setTypingAnimation(settings.typingAnimation);
     setChatName(settings.chatName || 'Chat');
     setCloudflareAccessId(settings.cloudflareAccessId);
+    setClientSecret(settings.clientSecret);
   }, [settings, isOpen]);
   
   const handleSave = () => {
@@ -43,7 +45,8 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
       webhookUrl,
       typingAnimation,
       chatName: chatName || 'Chat',
-      cloudflareAccessId
+      cloudflareAccessId,
+      clientSecret
     });
     onClose();
   };
@@ -122,6 +125,19 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                 onChange={(e) => setCloudflareAccessId(e.target.value)}
                 className="bg-gray-800/30 text-white border-0 focus-visible:ring-1 focus-visible:ring-chat-accent focus-visible:ring-offset-0 placeholder:text-gray-500"
                 placeholder="Enter your Cloudflare Access ID"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="clientSecret" className="text-gray-300">
+                Client Secret
+              </Label>
+              <Input
+                id="clientSecret"
+                type="password"
+                value={clientSecret}
+                onChange={(e) => setClientSecret(e.target.value)}
+                className="bg-gray-800/30 text-white border-0 focus-visible:ring-1 focus-visible:ring-chat-accent focus-visible:ring-offset-0 placeholder:text-gray-500"
+                placeholder="Enter your Client Secret"
               />
             </div>
             
