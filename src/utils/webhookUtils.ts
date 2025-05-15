@@ -1,4 +1,18 @@
 // Send message to webhook
+
+// Function to format links in messages
+const formatLinksInMessage = (message: string): string => {
+  // Regular expression to match URLs
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  
+  // Replace URLs with formatted links
+  return message.replace(urlRegex, (url) => {
+    // Remove any trailing punctuation
+    const cleanUrl = url.replace(/[.,;:!?]$/, '');
+    return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer">${cleanUrl}</a>`;
+  });
+};
+
 export const sendToWebhook = async (
   webhookUrl: string,
   message: string | undefined,
@@ -24,7 +38,9 @@ export const sendToWebhook = async (
     formData.append('chatId', chatId);
     
     if (message) {
-      formData.append('message', message);
+      // Format links in the message before sending
+      const formattedMessage = formatLinksInMessage(message);
+      formData.append('message', formattedMessage);
     }
     
     if (files && files.length > 0) {
@@ -34,7 +50,7 @@ export const sendToWebhook = async (
     }
     
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+    const timeoutId = setTimeout(() => controller.abort(), 180000); // 3 minute timeout
     
     console.log('Sending request with headers:', {
       'CF-Access-Client-Id': cloudflareAccessId,
