@@ -58,8 +58,8 @@ To run this project locally:
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/simplpear/my-chat.git
-    cd my-chat
+    git clone https://github.com/simplpear/n8n-easy-chat-ui.git
+    cd n8n-easy-chat-ui
     ```
 2.  **Install dependencies:**
     ```sh
@@ -82,4 +82,4 @@ To run this project locally:
 
 You can deploy this project to various platforms like Vercel, Netlify, or your own server.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsimplpear%2Fmy-chat%2Ftree%2Fmain)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsimplpear%2Fn8n-easy-chat-ui%2Ftree%2Fmain)
