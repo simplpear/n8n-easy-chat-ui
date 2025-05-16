@@ -1,4 +1,4 @@
-# n8n-react-chat: Custom Web UI for n8n Webhooks
+# n8n chat: Custom Web UI for n8n Webhooks
 
 This project provides a modern, responsive, and feature-rich chat interface that connects to an n8n webhook, allowing you to interact with your n8n workflows through a familiar chat experience.
 
