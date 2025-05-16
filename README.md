@@ -2,7 +2,7 @@
 
 This project provides a modern, responsive, and feature-rich chat interface that connects to an n8n webhook, allowing you to interact with your n8n workflows through a familiar chat experience.
 
-**Live Demo (if applicable, otherwise remove this line):** [Try it here!](https://n8n-easy-chat-ui.vercel.app) *(Retained from previous README, update if necessary)*
+**Live Demo:** [Try it here!](https://n8n-easy-chat-ui.vercel.app)
 
 ## Key Features
 
@@ -29,7 +29,6 @@ This project provides a modern, responsive, and feature-rich chat interface that
     *   Export and import chat history.
     *   Clear chat history.
 *   **Dynamic Tab Title:** Browser tab title updates with the custom chat name.
-*   **Favicon:** Custom application icon.
 
 ## Technologies Used
 
@@ -73,4 +72,3 @@ To run this project locally:
 You can deploy this project to various platforms like Vercel, Netlify, or your own server.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsimplpear%2Fmy-chat%2Ftree%2Fmain)
-*(Updated deploy button to point to the correct repository)*
