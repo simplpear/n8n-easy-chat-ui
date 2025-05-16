@@ -30,6 +30,17 @@ This project provides a modern, responsive, and feature-rich chat interface that
     *   Clear chat history.
 *   **Dynamic Tab Title:** Browser tab title updates with the custom chat name.
 
+## Architecture & Data Storage
+
+This application is a **client-side only React application**. It does not require a dedicated backend server for its own operations.
+
+*   **Communication:** It interacts directly with your specified n8n webhook URL for sending and receiving messages.
+*   **Data Persistence:**
+    *   **Chat History:** Messages, including attachments (converted to Base64 for persistence), are saved in the browser's **Local Storage**. This means the chat history is stored on the user's own computer and is specific to their browser.
+    *   **Settings:** All configuration options (Webhook URL, Cloudflare credentials, chat name, emoji, etc.) are also stored in Local Storage.
+
+This approach simplifies deployment and usage, as no backend infrastructure needs to be maintained for the chat UI itself.
+
 ## Technologies Used
 
 *   **Vite:** Fast build tool and development server.
