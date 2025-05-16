@@ -26,10 +26,11 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
   const { displayedText, isTyping } = useTypingAnimation(message, isUser);
   const { copiedCode, handleCopy, handleCopyCode } = useCopyMessage();
 
-  // Reset audio states when message changes
+  // Reset audio states when message.id changes
   useEffect(() => {
+    console.log(`[MessageBubble ${message.id}] useEffect for message.id change. Resetting audio states.`);
     resetAudioStates();
-  }, [message.id, resetAudioStates]);
+  }, [message.id]); // Only re-run if message.id changes
 
   // Check if the message only contains voice attachments and no text content
   const isOnlyVoiceMessage = () => {

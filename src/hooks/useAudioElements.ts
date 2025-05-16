@@ -1,5 +1,4 @@
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export const useAudioElements = () => {
   const [playingAudio, setPlayingAudio] = useState<string | null>(null);
@@ -8,11 +7,11 @@ export const useAudioElements = () => {
   }>({});
 
   // Reset function to clear all audio states
-  const resetAudioStates = () => {
+  const resetAudioStates = useCallback(() => {
     setPlayingAudio(null);
-  };
+  }, []);
 
-  // Cleanup audio elements on component unmount
+  // Cleanup audio elements on component unmount or when audioElements themselves change
   useEffect(() => {
     return () => {
       Object.values(audioElements).forEach(audio => {

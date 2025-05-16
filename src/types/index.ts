@@ -15,6 +15,7 @@ export interface Attachment {
   data?: File;
   size?: number;
   previewUrl?: string;
+  source?: 'microphone'; // Added to distinguish recorded audio
 }
 
 export interface ChatSettings {

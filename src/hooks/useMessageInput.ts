@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { Attachment } from '../types';
 import { generateId, createObjectURL, startRecording, stopRecording, isImageFile } from '../utils';
@@ -121,7 +120,8 @@ export const useMessageInput = (
             name: audioFile.name,
             type: audioFile.type,
             data: audioFile,
-            size: audioFile.size
+            size: audioFile.size,
+            source: 'microphone'
           };
           onSendMessage('', [voiceAttachment]);
         }

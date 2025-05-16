@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Attachment } from '../types';
 import { isImageFile, isAudioFile } from '../utils';
@@ -30,7 +29,7 @@ const AttachmentsList: React.FC<AttachmentsListProps> = ({
   setAudioElements
 }) => {
   return (
-    <div className="space-y-2 mt-2">
+    <div className="space-y-2">
       {attachments.map(attachment => (
         <div key={attachment.id || attachment.name} className="rounded-md overflow-hidden">
           {(attachment.previewUrl || (attachment.type?.startsWith('image/'))) ? (
