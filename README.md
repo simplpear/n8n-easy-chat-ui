@@ -83,3 +83,7 @@ To run this project locally:
 You can deploy this project to various platforms like Vercel, Netlify, or your own server.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsimplpear%2Fn8n-easy-chat-ui%2Ftree%2Fmain)
+
+## License
+
+This project is provided for personal, non-commercial use only. You may modify it for your own personal use. Redistribution or use for commercial purposes is not permitted.
