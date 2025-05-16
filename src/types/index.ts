@@ -22,6 +22,7 @@ export interface ChatSettings {
   typingAnimation: boolean;
   chatId: string;
   chatName: string;
+  emoji?: string;
   cloudflareAccessId: string;
   clientSecret: string;
 }

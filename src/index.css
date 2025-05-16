@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -99,12 +98,12 @@
   @apply animate-blink;
 }
 
-.drag-over {
+/* .drag-over {
   @apply border-dashed border-2 border-chat-accent bg-chat-dark/50 rounded-t-lg;
-}
+} */
 
 .message-appear {
-  @apply animate-bounce-in;
+  @apply animate-fade-in;
 }
 
 .chat-gradient {

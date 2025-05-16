@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Attachment } from '../types';
 import { useMessageInput } from '../hooks/useMessageInput';
@@ -51,14 +50,14 @@ const MessageInput: React.FC<MessageInputProps> = ({
       
       <form 
         onSubmit={handleSubmit} 
-        className={`relative ${isDragging ? 'drag-over' : ''}`} 
+        className={`relative mx-4 sm:mx-8 md:mx-[50px] rounded-t-2xl overflow-hidden bg-chat-dark`}
         onDragOver={handleDragOver} 
         onDragLeave={handleDragLeave} 
         onDrop={handleFileDrop}
       >
-        <div className="flex bg-chat-dark-secondary rounded-t-lg mx-[50px] px-[5px] my-0 py-[5px] border-t border-l border-r border-gray-700">
+        <div className="flex items-center bg-chat-dark-secondary rounded-t-2xl px-[5px] my-0 py-[5px] border-t border-l border-r border-gray-700">
           {/* Left side (attachment button) */}
-          <div className="flex pt-2 items-start">
+          <div className="flex items-center">
             <AttachmentButton 
               onClick={triggerFileInput} 
               disabled={!isConnected || isLoading} 
@@ -73,14 +72,14 @@ const MessageInput: React.FC<MessageInputProps> = ({
               onChange={e => setMessage(e.target.value)} 
               onKeyDown={handleKeyDown} 
               placeholder="Write your message..." 
-              className="w-full bg-transparent text-white placeholder-gray-500 p-3 outline-none resize-none max-h-32" 
+              className="w-full bg-transparent text-white placeholder-gray-500 p-3 outline-none resize-none max-h-32 text-sm"
               rows={1} 
               disabled={!isConnected || isLoading} 
             />
           </div>
           
           {/* Right side (recording and send buttons) */}
-          <div className="flex pt-2 items-center space-x-1">
+          <div className="flex items-center space-x-1">
             <VoiceRecordButton 
               isRecording={isRecording}
               onClick={handleRecordToggle}
@@ -105,8 +104,8 @@ const MessageInput: React.FC<MessageInputProps> = ({
         />
         
         {isDragging && (
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center rounded-lg">
-            <p className="text-white">Drop files here</p>
+          <div className="absolute inset-0 flex items-center justify-center rounded-t-2xl bg-chat-accent/10 p-4">
+            <p className="text-white font-medium text-sm">Drop files here</p>
           </div>
         )}
       </form>

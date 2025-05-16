@@ -114,7 +114,15 @@ export default {
 				},
 				'timer-blink': {
 					'0%, 100%': { opacity: '1' },
-					'50%': { opacity: '0.5' }
+					'50%': { opacity: '0.7' }
+				},
+				'fade-out': {
+					'0%': { opacity: '1', transform: 'translateY(0px)' },
+					'100%': { opacity: '0', transform: 'translateY(10px)' }
+				},
+				'bounce-out': {
+					'0%': { transform: 'scale(1)', opacity: '1' },
+					'100%': { transform: 'scale(0.95)', opacity: '0' }
 				}
 			},
 			animation: {
@@ -123,8 +131,10 @@ export default {
 				'typing': 'typing 1.5s steps(30, end)',
 				'blink': 'blink 0.7s infinite',
 				'bounce-in': 'bounce-in 0.3s ease-out',
-				'fade-in': 'fade-in 0.5s ease-out',
-				'timer-pulse': 'timer-blink 1.5s ease-in-out infinite'
+				'fade-in': 'fade-in 0.3s ease-out',
+				'timer-pulse': 'timer-blink 1.5s ease-in-out infinite',
+				'fade-out': 'fade-out 0.2s ease-in',
+				'bounce-out': 'bounce-out 0.2s ease-in'
 			},
 			typography: {
 				DEFAULT: {

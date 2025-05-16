@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Copy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -32,7 +31,7 @@ const CopyButton: React.FC<CopyButtonProps> = ({ position, onClick }) => {
           <Copy size={14} />
         </Button>
       </HoverCardTrigger>
-      <HoverCardContent className="py-1 px-2 text-xs">
+      <HoverCardContent className="py-1 px-2 text-xs w-fit">
         Copy message
       </HoverCardContent>
     </HoverCard>

@@ -90,7 +90,8 @@ export const getSettings = (): ChatSettings => {
     webhookUrl: '',
     typingAnimation: true,
     chatId: generateId(),
-    chatName: 'Chat',
+    chatName: 'Chat with n8n',
+    emoji: '🤖',
     cloudflareAccessId: '',
     clientSecret: ''
   };

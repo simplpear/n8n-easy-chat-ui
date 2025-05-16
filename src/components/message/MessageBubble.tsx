@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Message, Attachment } from '../../types';
 import AttachmentsList from '../AttachmentsList';
@@ -60,16 +59,16 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
   
   return (
     <div 
-      className="flex mb-4 relative group"
+      className="flex mb-4 relative group animate-fade-in"
       style={{ justifyContent: isUser ? 'flex-end' : 'flex-start' }}
       onMouseEnter={() => setShowActions(true)} 
       onMouseLeave={() => setShowActions(false)} 
       data-testid={`message-bubble-${message.id}`}
     >
       <div 
-        className={`rounded-lg px-4 py-3 max-w-[80%] break-words flex items-center relative ${
+        className={`rounded-lg px-4 py-3 max-w-[80%] break-words flex flex-col relative items-stretch ${
           isUser 
-            ? 'bg-chat-user-bubble text-white justify-center' 
+            ? 'bg-gradient-to-br from-chat-user-bubble to-chat-accent text-white justify-end w-fit'
             : 'bg-chat-agent-bubble text-gray-200 justify-start'
         } ${isOnlyVoiceMessage() ? 'py-1 px-2 max-w-[250px]' : ''}`}
       >
@@ -93,7 +92,7 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
         )}
         
         {message.content && (
-          <div className={`w-full ${isUser ? 'text-center' : 'text-left'}`}>
+          <div className={`w-full ${isUser ? 'text-right' : 'text-left'}`}>
             <MessageContent 
               content={message.content}
               isTyping={isTyping}
@@ -105,15 +104,18 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
           </div>
         )}
         
+        {/* Attachments - will now be below text due to flex-col on parent */}
         {!message.isTyping && message.attachments && message.attachments.length > 0 && (
-          <AttachmentsList 
-            attachments={message.attachments}
-            onDownloadAttachment={onDownloadAttachment}
-            audioElements={audioElements}
-            playingAudio={playingAudio}
-            setPlayingAudio={setPlayingAudio}
-            setAudioElements={setAudioElements}
-          />
+          <div className={`w-full ${message.content ? 'mt-2' : ''}`}>
+            <AttachmentsList 
+              attachments={message.attachments}
+              onDownloadAttachment={onDownloadAttachment}
+              audioElements={audioElements}
+              playingAudio={playingAudio}
+              setPlayingAudio={setPlayingAudio}
+              setAudioElements={setAudioElements}
+            />
+          </div>
         )}
       </div>
     </div>

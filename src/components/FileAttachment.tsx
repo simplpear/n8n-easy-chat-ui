@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   FileAudio, 
@@ -47,7 +46,7 @@ const FileAttachment: React.FC<FileAttachmentProps> = ({
   };
   
   return (
-    <div className="flex items-center px-3 py-3 bg-opacity-30 bg-transparent">
+    <div className="flex items-center px-3 py-3 bg-white/10 rounded-md">
       {getFileIcon()}
       <div className="flex-1 min-w-0 flex items-center">
         <div>

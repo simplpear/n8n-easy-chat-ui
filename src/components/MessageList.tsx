@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Message, Attachment } from '../types';
 import MessageBubble from './message/MessageBubble';
@@ -29,12 +28,12 @@ const MessageList: React.FC<MessageListProps> = ({
   
   return (
     <ScrollArea className="flex-1 relative">
-      <div className="px-[50px] py-4">
+      <div className="pt-20 pb-4 px-4 sm:px-8 md:px-[50px]">
         {messages.length === 0 ? (
           <div className="flex items-center justify-center h-full text-gray-500 text-center">
-            <div>
-              <p className="mb-2">No messages yet</p>
-              <p className="text-sm">Save the n8n webhook link and type your first message</p>
+            <div className="bg-white/5 p-6 rounded-lg shadow-md">
+              <p className="mb-2 text-base font-medium text-gray-400">No messages yet</p>
+              <p className="text-sm text-gray-500">Open the settings for configuration</p>
             </div>
           </div>
         ) : (

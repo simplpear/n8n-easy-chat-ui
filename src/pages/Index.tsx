@@ -23,6 +23,15 @@ const Index = () => {
     setIsConnected(!!settings.webhookUrl);
   }, [settings.webhookUrl]);
   
+  // Update document title when chatName changes
+  useEffect(() => {
+    if (settings.chatName) {
+      document.title = settings.chatName;
+    } else {
+      document.title = 'n8n-react-chat'; // Default title if chatName is empty
+    }
+  }, [settings.chatName]);
+  
   const handleSaveSettings = (newSettings: ChatSettings) => {
     setSettings(newSettings);
     saveSettings(newSettings);

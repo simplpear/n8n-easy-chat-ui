@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Download } from 'lucide-react';
 import { Attachment } from '../types';
@@ -22,7 +21,7 @@ const ImageAttachment: React.FC<ImageAttachmentProps> = ({
         <img 
           src={imageUrl} 
           alt={attachment.name || 'Image attachment'} 
-          className="rounded max-h-60 w-auto object-contain" 
+          className="rounded h-48 w-full object-cover"
         />
       ) : (
         <div className="rounded p-2 bg-gray-800 text-gray-300">

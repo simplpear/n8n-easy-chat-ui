@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Settings } from 'lucide-react';
 import { ChatSettings } from '../types';
@@ -16,17 +15,25 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({
 }) => {
   return (
     <div className="flex items-center justify-between px-4 py-3 border-b border-gray-800">
-      <h2 className="text-white font-medium truncate">
-        {settings.chatName}
-      </h2>
+      <div className="flex items-center">
+        {settings.emoji && <span className="mr-2 text-lg">{settings.emoji}</span>}
+        <h2 className="text-white font-normal truncate">
+          {settings.chatName}
+        </h2>
+      </div>
       
       <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2">
-          <span className={`inline-block w-2 h-2 rounded-full ${
-            isConnected ? 'bg-green-500' : 'bg-red-500'
-          }`} />
-          <span className="text-sm text-gray-300">
-            n8n {isConnected ? 'connected' : 'disconnected'}
+        <div className={`flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-medium
+          ${isConnected 
+            ? 'bg-[#326263]/50 text-cyan-400'  // Changed /70 to /50 for opacity
+            : 'bg-[#633232]/50 text-red-400'    // Changed /70 to /50 for opacity
+          }
+        `}>
+          <span className={`inline-block w-2 h-2 rounded-full 
+            ${isConnected ? 'bg-cyan-400' : 'bg-red-400'} 
+          `}/>
+          <span className="hidden sm:inline">
+            {isConnected ? 'N8N CONNECTED' : 'NO CONNECTION'}
           </span>
         </div>
         

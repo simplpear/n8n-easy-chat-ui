@@ -1,6 +1,6 @@
-
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Copy, CopyCheck } from 'lucide-react';
 import LoadingDots from './LoadingDots';
 
@@ -71,7 +71,11 @@ const MessageContent: React.FC<MessageContentProps> = ({
 
   return (
     <div className="markdown-content text-sm">
-      <ReactMarkdown className="prose prose-invert prose-sm max-w-none" components={components}>
+      <ReactMarkdown 
+        className="prose prose-invert prose-sm max-w-none" 
+        components={components}
+        remarkPlugins={[remarkGfm]}
+      >
         {content}
       </ReactMarkdown>
     </div>
