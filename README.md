@@ -1,4 +1,5 @@
 # n8n chat: Custom Web UI for n8n Webhooks
+![n8nui](https://github.com/user-attachments/assets/dfa93602-9207-4e96-bcd4-841c7d026327)
 
 This project provides a modern, responsive, and feature-rich chat interface that connects to an n8n webhook, allowing you to interact with your n8n workflows through a familiar chat experience.
 
